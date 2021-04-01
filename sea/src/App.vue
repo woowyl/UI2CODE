@@ -40,8 +40,13 @@ export default {
 
 <style lang="less">
 .wrapper {
+    * {
+        box-sizing: border-box;
+    }
     width: 100%;
     height: 100vh;
+    margin: 20px;
+    overflow: hidden;
     display: flex;
     position: relative;
 }
