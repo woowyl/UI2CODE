@@ -1,6 +1,6 @@
 <template>
     <div class="layout-wrapper box-border">
-        <div class="wrapper">
+        <div class="box-wrapper">
             <div class="box box-3" 
                 draggable="true" 
                 @dragstart="dragstart"
@@ -32,7 +32,7 @@ export default {
         }
     },
     mounted() {
-       
+        
     }
 }
 </script>
@@ -42,7 +42,7 @@ export default {
         width: 240px;
     }
 
-    .wrapper {
+    .box-wrapper {
         display: flex;
         border: 1px solid green;
         padding: 10px;
@@ -55,8 +55,8 @@ export default {
         border: 1px solid red ;
         display: flex;
         flex-direction: column;
-        width: 220px;
-        height: 300px;
+        width: 100%;
+        height: 240px;
         padding: 2px;
         margin: 5px;
         &:hover {

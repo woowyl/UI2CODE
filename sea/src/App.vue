@@ -18,23 +18,23 @@ import LayoutSelect from './components/LayoutSelect.vue'
 import PropertyArea from './components/PropertyArea.vue'
 
 export default {
-  name: 'App',
-  components: {
-    DSL,
-    LayoutSelect,
-    Action,
-    PropertyArea
-  },
-  data() {
-      return {
-          showProperty: false
-      }
-  },
-  methods: {
-      changePro() {
-          this.showProperty = !this.showProperty;
-      }
-  }
+    name: 'App',
+    components: {
+        DSL,
+        LayoutSelect,
+        Action,
+        PropertyArea
+    },
+    data() {
+        return {
+            showProperty: false
+        }
+    },
+    methods: {
+        changePro() {
+            this.showProperty = !this.showProperty;
+        }
+    }
 }
 </script>
 
@@ -45,7 +45,7 @@ export default {
     }
     width: 100%;
     height: 100vh;
-    margin: 20px;
+    padding: 20px;
     overflow: hidden;
     display: flex;
     position: relative;

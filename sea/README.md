@@ -1,24 +1,19 @@
-# sea
+# 实现一个UI2CODE的系统
 
-## Project setup
-```
-npm install
-```
+## 基础版本 - 拖拽
+1. 定义好多种布局，已经其对应的DSL结构
+2. 选中拖拽布局，将布局拖入操作面板，则生成对应的DSL
+3. 在操作面板，选中DOM元素后，可以为其添加class， 定义 width, height,padding, margin 等，这些操作将同步到DSL
+4. 根据DSL结构导出 `.html` 和 `.less`文件
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+##  升级版本 - 图像识别
+1. 图像识别替换以上1、2步骤
+2. 同以上 3、4
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Lints and fixes files
+## DSL的结构定义
+```json
+    {
+        
+    }
 ```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
