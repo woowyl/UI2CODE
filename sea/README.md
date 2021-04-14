@@ -12,8 +12,40 @@
 
 
 ## DSL的结构定义
-```json
+```js
     {
-        
+       type: 'document',
+       children:[
+           {
+               type: 'element',
+               tagName: 'html',
+               children: [{
+                    type: 'element',
+                    tagName: 'div',
+                    children: [],
+                    attributes: [],
+                }, {
+                    type: 'text',
+                    tagName: 'this is text'
+                }
+                   
+               ],
+               attributes: [
+                   {
+                       name: 'class',
+                       value: 'hello world'
+                   },
+                   {
+                       name: 'id',
+                       value: '#id'
+                   }
+               ],
+               computedStyle: {
+                   width: '100px',
+                   display: 'flex',
+                   'align-items': 'center'
+               }
+           }
+       ]
     }
 ```
