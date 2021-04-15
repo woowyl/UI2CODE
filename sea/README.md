@@ -19,16 +19,16 @@
            {
                type: 'element',
                tagName: 'html',
-               id: 0,//自增，用于找到对应
+               nodeid: 0,//自增，用于找到对应
                children: [{
                     type: 'element',
                     tagName: 'div',
-                    id: 1,
+                    nodeid: 1,
                     children: [],
                     attributes: [],
                 }, {
                     type: 'text',
-                    id: 2,
+                    nodeid: 2,
                     content: 'this is text'
                 }
                    

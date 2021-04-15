@@ -81,6 +81,9 @@ export default {
             box-shadow:0px 0px 10px 5px #aaaaaa;
         }
     }
+    .action-wrapper.box-border .layout-box { 
+        max-width: 300px;
+    }
     .layout-wrapper {
         .layout-box { 
             max-width: 200px;

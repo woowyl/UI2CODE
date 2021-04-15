@@ -57,9 +57,7 @@ export default {
     flex: 1;
     margin: 10px;
     padding: 10px 50px;
-    .layout-box { 
-        max-width: 200px;
-        max-height: 240px;
-    }
+    
 }
+
 </style>
