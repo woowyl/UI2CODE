@@ -1,8 +1,8 @@
 <template>
     <div class="layout-wrapper box-border">
         <div class="box-wrapper">
-            <div class="box box-3"
-                id="box_1" 
+            <div class="layout-box box-3"
+                id="layout-1" 
                 draggable="true" 
                 @dragstart="dragstart"
                 @dragend="dragend"
@@ -16,6 +16,8 @@
 </template>
 
 <script>
+import createDSL from '../utils/createDSL';
+
 export default {
     data: function() {
         return {
@@ -24,26 +26,28 @@ export default {
     },
     methods: {
         dragstart(event) {
-            event.dsl = {
-                'parent': 'div',
-                'child': ['div', 'p']
-            }
-            event.dataTransfer.setData("text", event.target.id);
-            // Tell the browser both copy and move are possible
+            let DSL = JSON.stringify(createDSL());
+
+            event.dataTransfer.setData("DSL", DSL);
+            event.dataTransfer.setData("id", event.target.id);
+            
             event.effectAllowed = "copyMove";
-            console.log('dragstart', event);
         },
         dragend(event) {
-            console.log(event);
+            event.preventDefault();
         },
         dragenter(event) {
-            console.log(33);
             event.preventDefault();
         },
         dragover(event) {
-            console.log(22);
             event.preventDefault();
         },
+
+        // 双击选中编辑元素
+        edit() {
+            console.log('edit');
+            this.$emit('properchange')
+        }
     },
     mounted() {
         
@@ -65,21 +69,27 @@ export default {
     .wrap {
         flex-wrap: wrap;
     }
-    .box {
+    .layout-box {
         border: 1px solid red ;
         display: flex;
         flex-direction: column;
-        width: 100%;
-        height: 240px;
+        min-width: 100px;
+        min-height: 100px;
         padding: 2px;
         margin: 5px;
         &:hover {
             box-shadow:0px 0px 10px 5px #aaaaaa;
         }
     }
+    .layout-wrapper {
+        .layout-box { 
+            max-width: 200px;
+            max-height: 240px;
+        }
+    }
     .item{
         border: 1px solid blue;
-        height: 50px;
+        min-height: 20px;
         margin: 5px;
     }
     .fill {

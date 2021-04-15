@@ -3,11 +3,11 @@
         <!-- 左侧DSL -->
         <DSL></DSL>
         <!-- 中间action区域 -->
-        <action v-on:properchange="changePro"></action>
+        <action></action>
         <!-- 右侧布局选择 -->
         <layout-select></layout-select>
         <!-- 右侧属性修改 -->
-        <property-area :show="showProperty"></property-area>
+        <property-area></property-area>
     </div>
 </template>
 
@@ -27,13 +27,16 @@ export default {
     },
     data() {
         return {
-            showProperty: false
         }
     },
     methods: {
-        changePro() {
-            this.showProperty = !this.showProperty;
+        closePorp() {
+            let vueBus = window.vueBus;
+            vueBus.$emit('properchange', false)
         }
+    },
+    mounted() {
+        
     }
 }
 </script>

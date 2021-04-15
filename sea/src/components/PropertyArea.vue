@@ -1,15 +1,29 @@
 <template>
         <div 
         class="property-wrapper box-border" 
-        :class="{'show': show}">属性选择区
+        :class="{'show': showPop}">属性选择区
+            <button @click="closeProp">关闭</button>
         </div>
 </template>
 
 <script>
 export default {
-    props: ['show'],
+    data() {
+        return {
+            showPop: this.show
+        }
+    },
+    methods: {
+        closeProp() {
+            this.showPop = false;
+        }
+    },
     mounted() {
-        console.log(this.show);
+        let vueBus = window.vueBus;
+        
+        vueBus.$on('properchange',(val) => {
+            this.showPop = val;
+        });
     }
 }
 </script>

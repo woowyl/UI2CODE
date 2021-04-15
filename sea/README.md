@@ -19,18 +19,21 @@
            {
                type: 'element',
                tagName: 'html',
+               id: 0,//自增，用于找到对应
                children: [{
                     type: 'element',
                     tagName: 'div',
+                    id: 1,
                     children: [],
                     attributes: [],
                 }, {
                     type: 'text',
-                    tagName: 'this is text'
+                    id: 2,
+                    content: 'this is text'
                 }
                    
                ],
-               attributes: [
+                attributes: [
                    {
                        name: 'class',
                        value: 'hello world'
@@ -49,3 +52,18 @@
        ]
     }
 ```
+
+
+## todo list
+1. 拖到action区域后，元素留在鼠标位置
+    - 不能单纯的append元素，需要判断位置，insert到dom之间，这个操作会影响到DSL结构的生成
+2. 元素放入action区域后，生成DSL结构
+3. property 面板内容
+    - tagname
+    - class
+    - id
+    - width
+    - height
+    - display
+4. 选中元素,触发其property面板
+5. 根据DSL生成HTML 和 LESS

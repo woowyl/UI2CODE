@@ -10,6 +10,7 @@
 </template>
 
 <script>
+
 export default {
     name: 'Action',
     components: {
@@ -25,17 +26,26 @@ export default {
             this.$emit('properchange')
         },
         dragenter(event) {
-            console.log(33);
             event.preventDefault();
         },
         dragover(event) {
-            console.log(22);
             event.preventDefault();
         },
         drop(event) {
-            var id = event.dataTransfer.getData("text");
+            let vueBus = window.vueBus;
+            var id = event.dataTransfer.getData("id");
+            // let DSL = event.dataTransfer.getData("DSL");
             var nodeCopy = document.getElementById(id).cloneNode(true);
-            nodeCopy.id = "newId";
+            nodeCopy.id = "123";
+            nodeCopy.draggable = false;
+            nodeCopy.addEventListener("dblclick", () => {
+                vueBus.$emit('properchange', true)
+            })
+            nodeCopy.setAttribute('nodeid', window.nodeID ++);
+            nodeCopy.childNodes.forEach((item) => {
+                item.setAttribute('nodeid', window.nodeID ++);
+            });
+            // todo  这里不应该之间append
             event.target.appendChild(nodeCopy);
         }
     }
@@ -46,5 +56,10 @@ export default {
 .action-wrapper {
     flex: 1;
     margin: 10px;
+    padding: 10px 50px;
+    .layout-box { 
+        max-width: 200px;
+        max-height: 240px;
+    }
 }
 </style>
