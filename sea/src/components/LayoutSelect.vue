@@ -1,10 +1,13 @@
 <template>
     <div class="layout-wrapper box-border">
         <div class="box-wrapper">
-            <div class="box box-3" 
+            <div class="box box-3"
+                id="box_1" 
                 draggable="true" 
                 @dragstart="dragstart"
-                @dragend="dragend">
+                @dragend="dragend"
+                @dragenter="dragenter"
+                @dragover="dragover">
                 <div class="item"></div>
                 <div class="item fill"></div>
             </div>
@@ -25,11 +28,22 @@ export default {
                 'parent': 'div',
                 'child': ['div', 'p']
             }
+            event.dataTransfer.setData("text", event.target.id);
+            // Tell the browser both copy and move are possible
+            event.effectAllowed = "copyMove";
             console.log('dragstart', event);
         },
         dragend(event) {
             console.log(event);
-        }
+        },
+        dragenter(event) {
+            console.log(33);
+            event.preventDefault();
+        },
+        dragover(event) {
+            console.log(22);
+            event.preventDefault();
+        },
     },
     mounted() {
         
