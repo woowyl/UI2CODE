@@ -92,6 +92,9 @@ export default {
         padding: 2px;
         margin: 5px;
     }
+    .action-wrapper.box-border .layout-box { 
+        max-width: 300px;
+    }
     .layout-wrapper {
         .layout-box { 
             max-width: 200px;
