@@ -10,3 +10,7 @@ body {
   width: 100%;
   overflow: hidden;
 }
+.cur-edit {
+  transform: scale(1.02);
+  box-shadow: inset 0px 0px 8px 0px #aaaaaa;
+}

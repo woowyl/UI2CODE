@@ -2,6 +2,8 @@
         <div 
         class="property-wrapper box-border" 
         :class="{'show': showPop}">属性选择区
+            <h2 class="title">属性修改</h2>
+            
             <button @click="closeProp">关闭</button>
         </div>
 </template>
@@ -30,7 +32,7 @@ export default {
 
 <style lang="less" scoped>
 .property-wrapper {
-    width: 240px;
+    width: 262px;
     height: 100vh;
     position: absolute;
     right: 0;
