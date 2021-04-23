@@ -4,8 +4,10 @@
         @dragenter="dragenter"
         @dragover="dragover"
         @drop="drop">
-
-        <button @click="showPropertyPannel">查看属性</button>
+        <a-button 
+            type="primary" 
+            @click="showPropertyPannel">查看属性
+        </a-button>
     </div>
 </template>
 
@@ -23,7 +25,8 @@ export default {
     },
     methods: {
         showPropertyPannel() {
-            this.$emit('properchange')
+            let vueBus = window.vueBus;
+            vueBus.$emit('properchange', true)
         },
         dragenter(event) {
             event.preventDefault();

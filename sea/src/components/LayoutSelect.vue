@@ -31,7 +31,6 @@
 
 <script>
 import createDSL from '../utils/createDSL';
-import 'ant-design-vue/dist/antd.css'; 
 
 export default {
     data: function() {
