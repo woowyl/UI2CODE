@@ -4,8 +4,10 @@
         @dragenter="dragenter"
         @dragover="dragover"
         @drop="drop">
-
-        <button @click="showPropertyPannel">查看属性</button>
+        <a-button 
+            type="primary" 
+            @click="showPropertyPannel">查看属性
+        </a-button>
     </div>
 </template>
 
@@ -23,7 +25,8 @@ export default {
     },
     methods: {
         showPropertyPannel() {
-            this.$emit('properchange')
+            let vueBus = window.vueBus;
+            vueBus.$emit('properchange', true)
         },
         dragenter(event) {
             event.preventDefault();
@@ -38,7 +41,13 @@ export default {
             var nodeCopy = document.getElementById(id).cloneNode(true);
             nodeCopy.id = "123";
             nodeCopy.draggable = false;
-            nodeCopy.addEventListener("dblclick", () => {
+            nodeCopy.addEventListener("dblclick", (e) => {
+                // 首先让选中的元素加上样式，同一时刻只能编辑一个元素
+                document.querySelectorAll('*').forEach(ele => {
+                    ele.classList.remove('cur-edit');
+                })
+                let curClassList = e.target.classList;
+                curClassList.toggle('cur-edit');
                 vueBus.$emit('properchange', true)
             })
             nodeCopy.setAttribute('nodeid', window.nodeID ++);

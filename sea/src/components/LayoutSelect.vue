@@ -1,7 +1,7 @@
 <template>
     <div class="layout-wrapper box-border">
         <div class="box-wrapper">
-            <div class="layout-box box-3"
+            <div class="layout-box box-ver-fill"
                 id="layout-1" 
                 draggable="true" 
                 @dragstart="dragstart"
@@ -11,6 +11,20 @@
                 <div class="item"></div>
                 <div class="item fill"></div>
             </div>
+            
+        </div>
+        <div class="box-wrapper">
+            <div class="layout-box box-hor-fill"
+                id="layout-2" 
+                draggable="true" 
+                @dragstart="dragstart"
+                @dragend="dragend"
+                @dragenter="dragenter"
+                @dragover="dragover">
+                <div class="item"></div>
+                <div class="item fill"></div>
+            </div>
+            
         </div>
     </div>
 </template>
@@ -72,14 +86,10 @@ export default {
     .layout-box {
         border: 1px solid red ;
         display: flex;
-        flex-direction: column;
         min-width: 100px;
         min-height: 100px;
         padding: 2px;
         margin: 5px;
-        &:hover {
-            box-shadow:0px 0px 10px 5px #aaaaaa;
-        }
     }
     .action-wrapper.box-border .layout-box { 
         max-width: 300px;
@@ -88,11 +98,22 @@ export default {
         .layout-box { 
             max-width: 200px;
             max-height: 240px;
+            &:hover {
+                box-shadow:0px 0px 10px 5px #aaaaaa;
+            }
         }
+    }
+    // 这里是具体的box布局
+    .box-ver-fill {
+        flex-direction: column;
+    }
+    .box-hor-fill {
+        flex-direction:row;
     }
     .item{
         border: 1px solid blue;
         min-height: 20px;
+        min-width: 20px;
         margin: 5px;
     }
     .fill {
