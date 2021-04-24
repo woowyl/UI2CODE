@@ -17,22 +17,22 @@
        type: 'document',
        children:[
            {
-               type: 'element',
-               tagName: 'html',
-               nodeid: 0,//自增，用于找到对应
-               children: [{
-                    type: 'element',
-                    tagName: 'div',
-                    nodeid: 1,
-                    children: [],
-                    attributes: [],
-                }, {
-                    type: 'text',
-                    nodeid: 2,
-                    content: 'this is text'
-                }
-                   
-               ],
+                type: 'element',
+                tagName: 'html',
+                nodeid: 0,//自增，用于找到对应
+                children: [{
+                        type: 'element',
+                        tagName: 'div',
+                        nodeid: 1,
+                        children: [],
+                        attributes: [],
+                    }, {
+                        type: 'text',
+                        nodeid: 2,
+                        content: 'this is text'
+                    }
+                    
+                ],
                 attributes: [
                    {
                        name: 'class',
@@ -42,12 +42,12 @@
                        name: 'id',
                        value: '#id'
                    }
-               ],
-               computedStyle: {
-                   width: '100px',
-                   display: 'flex',
-                   'align-items': 'center'
-               }
+                ],
+                computedStyle: {
+                    width: '100px',
+                    display: 'flex',
+                    'align-items': 'center'
+                }
            }
        ]
     }
@@ -58,13 +58,21 @@
 1. 拖到action区域后，元素留在鼠标位置
     - 不能单纯的append元素，需要判断位置，insert到dom之间，这个操作会影响到DSL结构的生成
 2. 元素放入action区域后，生成DSL结构
-3. property 面板内容
+3. ✔️property 面板内容
     - tagname
     - class
     - id
     - width
     - height
     - display
-4. 选中元素,触发其property面板
+4. ✔️选中元素,触发其property面板
 5. 根据DSL生成HTML 和 LESS
 6. 面板样式优化，最好能保证拖拽后和样式的比例一直，大小做放大
+7. 拖动的模板，分类
+    - 布局
+        - flex的几种布局
+    - 元素
+        - div
+        - image
+        - text
+
