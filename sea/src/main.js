@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-
+import store from './store/'
 import './global.less'
 import { Button, Input, Icon } from 'ant-design-vue';
 
@@ -23,5 +23,6 @@ window.nodeID = 0;
 
 
 new Vue({
+    store,
     render: h => h(App),
 }).$mount('#app')

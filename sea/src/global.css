@@ -11,6 +11,12 @@ body {
   overflow: hidden;
   position: relative;
 }
+.box-wrapper {
+  display: flex;
+  border: 1px solid green;
+  padding: 10px;
+  margin: 10px;
+}
 .cur-edit {
   transform: scale(1.02);
   box-shadow: inset 0px 0px 8px 0px #aaaaaa;

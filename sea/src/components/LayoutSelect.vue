@@ -8,7 +8,7 @@
                 @dragend="dragend"
                 @dragenter="dragenter"
                 @dragover="dragover">
-                <div class="item"></div>
+                <div class="item fill"></div>
                 <div class="item fill"></div>
             </div>
             
@@ -74,12 +74,7 @@ export default {
         width: 240px;
     }
 
-    .box-wrapper {
-        display: flex;
-        border: 1px solid green;
-        padding: 10px;
-        margin: 10px;
-    }
+    
     .wrap {
         flex-wrap: wrap;
     }
