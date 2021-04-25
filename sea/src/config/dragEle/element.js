@@ -37,7 +37,7 @@ const image = {
         },
         computedStyle: {},
     },
-    html: `<img src="http://placekitten.com/200/200" />`
+    html: `<img draggable="false" src="http://placekitten.com/200/200" />`
 }
 
 

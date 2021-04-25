@@ -1,53 +1,51 @@
-import demoTree from '../mock/demoDSL'
+// import demoTree from '../mock/demoDSL'
 
 // function getTextNode(type) {
 //     let textNode = document.createTextNode()
 // }
 
-export default function() {
-    console.log("demo before",demoTree);
+export default function(DSL) {
     let root = document.createElement('div');
+    root.classList.add('root');
     /**
      * 采用深度优先的方式DFS
      */
-    let nodes = [];
     let stack = [];
-    stack.push(demoTree);
-    debugger
+    stack.push(DSL);
     while (stack.length != 0) {
         let item = stack.pop();
-
         let title = document.createElement("p");
-        let childrenNode = document.createElement("div");
-        childrenNode.classList.add("children");
+        title.classList.add("title");
+        let childrenWrapper = document.createElement("div");
+        childrenWrapper.classList.add("children");
         switch (item.type) {
             case 'document':
+                title.classList.add('document');
                 title.textContent = 'document';
                 item.parent = root;
                 break;
             case 'block':
                 title.textContent = 'block';
+                title.classList.add('block');
                 break;
             case 'text':
                 title.textContent = 'text';
+                title.classList.add('text');
                 break;
             case 'img':
                 title.textContent = 'img';
+                title.classList.add('img');
                 break;
             default:
                 break;
         }
         item.parent.appendChild(title);
-        item.parent.appendChild(childrenNode);
-        nodes.push(item);
+        item.parent.appendChild(childrenWrapper);
         let children = item.children;
         for (let i = children.length; i--; i > 0) {
-            children[i].parent = childrenNode;
+            children[i].parent = childrenWrapper;
             stack.push(children[i]);
         }
     }
-    console.log("demo flat:====", nodes);
-    console.log("root:====", root);
-    root.textContent = 'document';
     return root.outerHTML;
 }

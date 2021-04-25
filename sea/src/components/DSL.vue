@@ -1,5 +1,6 @@
 <template>
-    <div class="dsl-wrapper box-border">DSL 树状结构区
+    <div class="dsl-wrapper box-border">
+        <h2 class="title">DSL Tree</h2>
         <div v-html="DSLTree">
         </div>
 
@@ -20,8 +21,22 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
     .dsl-wrapper {
         width: 240px;
+        padding: 20px;
+        .root {
+            .title {
+                color: #333;
+                font-size: 16px;
+                margin: 0;
+                padding: 10px 0;
+            }
+            .children {
+                padding-left: 20px;
+                border-left: 1px solid #bbb;
+            }
+        }
+        
     }
 </style>

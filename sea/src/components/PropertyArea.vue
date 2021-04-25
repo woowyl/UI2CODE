@@ -6,7 +6,7 @@
             
             <a-icon 
                 type="close" 
-                :style="{ fontSize: '16px', color: '#333' }"
+                :style="{ fontSize: '18px', color: '#333' }"
                 @click="closeProp"/>
 
             <div class="item-wrapper">
