@@ -4,8 +4,6 @@ import store from './store/'
 import './global.less'
 import { Button, Input, Icon } from 'ant-design-vue';
 
-import './utils/contextMenu'
-
 Vue.component(Input.name, Input)
 Vue.component(Button.name, Button)
 Vue.component(Icon.name, Icon)

@@ -83,7 +83,8 @@ export default {
                 padding: 2px;
             }
             img {
-                width: 80%;
+                width: 70%;
+                border-radius: 4px;
             }
         }
     }

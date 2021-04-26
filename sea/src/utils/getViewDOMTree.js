@@ -29,16 +29,20 @@ export default function(DSL) {
                 break;
             case 'block':
                 item.computedStyle.border = '1px solid #000';
-                item.computedStyle.padding = '2px';
-                item.computedStyle.margin = '2px';
+                item.computedStyle.padding = '5px';
+                item.computedStyle.margin = '8px';
                 item.computedStyle['min-height'] = '100px';
                 item.computedStyle['min-width'] = '200px';
                 break;
             case 'text':
                 ele.textContent = item.content;
+                item.computedStyle["user-select"] = 'none';
+                item.computedStyle.border = '1px solid #ccc';
                 break;
             case 'img':
                 ele.setAttribute('src', item.attributes.src);
+                item.computedStyle["user-select"] = 'none';
+                ele.setAttribute('draggable', false);
                 break;
             default:
                 break;
@@ -58,6 +62,8 @@ export default function(DSL) {
         let children = item.children;
         for (let i = children.length; i --; i > 0) {
             children[i].parent = ele;
+            children[i].__index = i;
+            children[i].__parentNode = children;
             stack.push(children[i]);
         }
         addEditFun(ele);

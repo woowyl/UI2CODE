@@ -57,7 +57,7 @@
 ## todo list
 1. 拖到action区域后，元素留在鼠标位置
     - 不能单纯的append元素，需要判断位置，insert到dom之间，这个操作会影响到DSL结构的生成
-2. 元素放入action区域后，生成DSL结构
+2. ✔️元素放入action区域后，生成DSL结构
 3. ✔️property 面板内容
     - tagname
     - class

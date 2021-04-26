@@ -23,18 +23,19 @@ export default new Vuex.Store({
         showPropertyPanel: false
     },
     mutations: {
-        [ADD_DSL_ITEM](state, payload) {
-            if (payload.position ===0) {
+        [ADD_DSL_ITEM](state, {position, dsl, index}) {
+            if (position ===0) {
                 // todo: 根据不同的位置插入元素，不仅仅是push
-                state.DSL.children.push(payload.dsl);
+                state.DSL.children.splice(index, 0, dsl);
             } else {
-                let curDSL = getItemFromDSLByBFS(state.DSL, payload.position);
-                curDSL && curDSL.children.push(payload.dsl);
+                let curDSL = getItemFromDSLByBFS(state.DSL, position);
+                curDSL && curDSL.children.splice(index, 0, dsl);
             }
         },
         // 删除DSL ITEM
-        [REMOVE_DSL_ITEM](state) {
-            console.log(state);
+        [REMOVE_DSL_ITEM](state, payload) {
+            let curDSL = getItemFromDSLByBFS(state.DSL, payload.nodeid);
+            curDSL && curDSL.__parentNode.splice(curDSL.__index, 1);
         },
         // 编辑DSL ITEM
         [EDIT_DSL_ITEM](state) {
