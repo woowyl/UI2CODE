@@ -22,7 +22,7 @@ window.nodeID = 0;
 
 
 
-new Vue({
+window.vueApp = new Vue({
     store,
     render: h => h(App),
 }).$mount('#app')

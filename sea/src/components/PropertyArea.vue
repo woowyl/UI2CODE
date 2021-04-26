@@ -29,25 +29,23 @@
 </template>
 
 <script>
-import '../common.css'
+import '../common.css';
+import { mapState } from 'vuex'
 export default {
     data() {
-        return {
-            showPop: this.show
-        }
+        return {}
+    },
+    computed: {
+        ...mapState({
+            showPop: state => state.showPropertyPanel
+        })
     },
     methods: {
         closeProp() {
-            this.showPop = false;
+            this.$store.commit('close_property_pannel');
         }
     },
-    mounted() {
-        let vueBus = window.vueBus;
-        
-        vueBus.$on('properchange',(val) => {
-            this.showPop = val;
-        });
-    }
+    mounted() {}
 }
 </script>
 

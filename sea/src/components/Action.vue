@@ -8,10 +8,16 @@
             type="primary" 
             @click="showPropertyPannel">查看属性
         </a-button>
+        <div v-text="viewModel"></div>
+        <div class="view-wrapper" id="appendView" >
+
+        </div>
     </div>
 </template>
 
 <script>
+import getViewDom from '../utils/getViewDOMTree';
+import { mapState } from 'vuex';
 
 export default {
     name: 'Action',
@@ -19,14 +25,25 @@ export default {
 
     },
     data() {
-        return {
-
-        }
+        return {}
+    },
+    computed: {
+        ...mapState({
+            viewModel(state) {
+                let dom = getViewDom(state.DSL);
+                this.$nextTick(() => {
+                    let appenview = document.querySelector("#appendView")
+                    while (appenview.hasChildNodes()) {
+                        appenview.removeChild(appenview.lastChild);
+                    }
+                    appenview.appendChild(dom);
+                })
+            } 
+        })
     },
     methods: {
         showPropertyPannel() {
-            let vueBus = window.vueBus;
-            vueBus.$emit('properchange', true)
+            this.$store.commit('open_property_pannel');
         },
         dragenter(event) {
             event.preventDefault();
@@ -37,7 +54,8 @@ export default {
         drop(event) {
             let DSL = JSON.parse(event.dataTransfer.getData("DSL"));
             // 没有nodeid的节点，证明是在顶层，否则放入对应nodeid的子元素中
-            let nodeid = event.target.getAttribute("nodeid");
+            let nodeid = event.target.getAttribute("data-nodeid");
+            console.log("drop in nodeid===",nodeid);
             if (nodeid) {
                 this.$store.commit({
                     type: 'add_dsl_item',
