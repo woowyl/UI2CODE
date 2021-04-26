@@ -16,6 +16,10 @@
             <p class="title">高度</p>
             <a-input class="input" placeholder="高度" suffix="px"/>
         </div>
+        <div class="item-wrapper">
+            <p class="title">字号</p>
+            <a-input class="input" placeholder="字号" suffix="px"/>
+        </div>
     </div>
 </template>
 

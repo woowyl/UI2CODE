@@ -28,6 +28,7 @@ export default function(DSL) {
                 root = ele;
                 break;
             case 'block':
+                item.computedStyle.display = 'flex';
                 item.computedStyle.border = '1px solid #000';
                 item.computedStyle.padding = '5px';
                 item.computedStyle.margin = '8px';
@@ -40,8 +41,8 @@ export default function(DSL) {
                 item.computedStyle.border = '1px solid #ccc';
                 break;
             case 'img':
-                ele.setAttribute('src', item.attributes.src);
                 item.computedStyle["user-select"] = 'none';
+                ele.setAttribute('src', item.attributes.src);
                 ele.setAttribute('draggable', false);
                 break;
             default:

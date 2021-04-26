@@ -11,10 +11,13 @@ import {
     OPEN_PROPERTY_PANNEL
 } from './mutaion-types'
 
-
+import property from './modules/property'
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+    modules: {
+        property
+    },
     state: {
         DSL: {
             type: 'document',
