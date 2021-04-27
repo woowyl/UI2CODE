@@ -22,7 +22,9 @@ function addEditFun(curEle) {
 
 export default function(DSL) {
     let stack = [];
-
+    // let copyedDSL = JSON.parse(JSON.stringify(DSL));
+    // console.log("copyedDSL", copyedDSL, DSL);
+    // stack.push(copyedDSL);
     stack.push(DSL);
     let root;
     while(stack.length !== 0) {

@@ -70,7 +70,6 @@ export default {
             };
             let insertIndex = getIndexbyCoords(siblingCoords, eventCoord);
             let nodeid = event.target.getAttribute("data-nodeid");
-            
             if (nodeid) {
                 this.$store.commit({
                     type: 'DSL/add_dsl_item',
