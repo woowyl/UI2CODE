@@ -8,8 +8,12 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
-import getDSLTree from '../utils/getDSLTree'
+// import { mapState } from 'vuex';
+import getDSLTree from '../utils/getDSLTree';
+
+import { createNamespacedHelpers } from 'vuex';
+const { mapState } = createNamespacedHelpers('DSL');
+
 export default {
     computed: {
         ...mapState({

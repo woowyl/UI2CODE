@@ -6,7 +6,9 @@ const block = {
         tagName: 'div',
         children: [],
         attributes: {},
-        computedStyle: {}
+        computedStyle: {
+            display: 'flex'
+        }
     },
     html: `<div></div>`
 }

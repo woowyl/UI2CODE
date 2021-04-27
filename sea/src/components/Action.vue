@@ -30,7 +30,7 @@ export default {
         return {}
     },
     computed: {
-        ...mapState({
+        ...mapState('DSL/', {
             viewModel(state) {
                 let dom = getViewDom(state.DSL);
                 // 为了保留dom中的事件，这里需要将dom append到页面中，而不能直接用v-html
@@ -46,7 +46,7 @@ export default {
     },
     methods: {
         showPropertyPannel() {
-            this.$store.commit('open_property_pannel');
+            this.$stor.commit('open_property_pannel');
         },
         dragenter(event) {
             event.preventDefault();
@@ -69,18 +69,18 @@ export default {
                 y: event.y
             };
             let insertIndex = getIndexbyCoords(siblingCoords, eventCoord);
-            console.log("insertIndex====", insertIndex);
             let nodeid = event.target.getAttribute("data-nodeid");
+            
             if (nodeid) {
                 this.$store.commit({
-                    type: 'add_dsl_item',
+                    type: 'DSL/add_dsl_item',
                     dsl: DSL,
                     position: nodeid,
                     index: insertIndex
                 });
             } else {
                 this.$store.commit({
-                    type: 'add_dsl_item',
+                    type: 'DSL/add_dsl_item',
                     dsl: DSL,
                     position: 0,
                     index: insertIndex

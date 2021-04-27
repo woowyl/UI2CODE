@@ -21,7 +21,6 @@
 <script>
 import Action from './components/Action.vue'
 import DSL from './components/DSL.vue'
-// import LayoutSelect from './components/LayoutSelect.vue'
 import PropertyArea from './components/PropertyArea.vue'
 import Element from './components/Element.vue'
 

@@ -246,7 +246,34 @@ export default {
     },
     methods: {
         setProp(prop, value) {
-            this[prop] = value
+            this[prop] = value;
+            let commitValue = {
+                type: 'DSL/edit_dsl_item',
+                property: 'computedStyle',
+                value: '',
+                innerproperty: '',
+                innervalue: value
+            }
+            switch (prop) {
+                case 'direction':
+                    commitValue.innerproperty = 'flex-direction';
+                    break;
+                case 'flexWrap':
+                    commitValue.innerproperty = 'flex-wrap';
+                    break;
+                case 'alignContent':
+                    commitValue.innerproperty = 'align-content';
+                    break;
+                case 'justifyContent':
+                    commitValue.innerproperty = 'justify-content';
+                    break;
+                case 'alignItems':
+                    commitValue.innerproperty = 'align-items';
+                    break;
+                default:
+                    break;
+            }
+            this.$store.commit(commitValue)
         }
     }
 }

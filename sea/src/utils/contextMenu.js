@@ -17,7 +17,7 @@ const menus = [{
     cb: function() {
         console.log(targetEle, "删除");
         store.commit({
-            type: 'remove_dsl_item',
+            type: 'DSL/remove_dsl_item',
             nodeid: targetEle.getAttribute("data-nodeid")
         })
     }

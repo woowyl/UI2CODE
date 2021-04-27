@@ -2,15 +2,22 @@
 
 function addEditFun(curEle) {
     curEle.addEventListener("dblclick", (e) => {
-        console.log(e);
+        e.stopPropagation();
+        console.log(curEle);
             // 首先让选中的元素加上样式，同一时刻只能编辑一个元素
         document.querySelectorAll('*').forEach(ele => {
             ele.classList.remove('cur-edit');
         })
         let curClassList = e.target.classList;
+        let curNodeId = e.target.getAttribute('data-nodeid');
+
         curClassList.toggle('cur-edit');
         window.vueApp.$store.commit("open_property_pannel");
-    })
+        window.vueApp.$store.commit({
+            type: 'set_current_node',
+            nodeid: curNodeId
+        })
+    }, false)
 }
 
 export default function(DSL) {
@@ -28,7 +35,6 @@ export default function(DSL) {
                 root = ele;
                 break;
             case 'block':
-                item.computedStyle.display = 'flex';
                 item.computedStyle.border = '1px solid #000';
                 item.computedStyle.padding = '5px';
                 item.computedStyle.margin = '8px';
@@ -55,6 +61,12 @@ export default function(DSL) {
                 styleList.push(`${style}:${item.computedStyle[style]}`);
             }
             ele.setAttribute('style', styleList.join(";"))
+        }
+
+        if (item.attributes) {
+            for (let attr in item.attributes) {
+                ele.setAttribute(attr, item.attributes[attr])
+            }
         }
         
         if (typeof item.parent != 'undefined') {
