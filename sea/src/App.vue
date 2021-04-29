@@ -1,7 +1,10 @@
 <template>
     <div id="app" class="wrapper">
         <div class="fixed-top-bar">
-
+            <div class="export">
+                <a-icon class="export-" type="upload" />
+                <p>导出</p>
+            </div>
         </div>
         <div class="main-wrapper">
             <!-- 左侧DSL -->
@@ -63,12 +66,13 @@ export default {
     .fixed-top-bar {
         display: flex;
         width: 100%;
-        height: 80px;
-        background: #ccc;
+        height: 54px;
+        background: #eaedf0;
+        padding: 0;
+        border-bottom: 1px solid #bfbfbf;
     }
     .main-wrapper {
         display: flex;
-        padding: 20px;
         height: 100%;
     }
 }

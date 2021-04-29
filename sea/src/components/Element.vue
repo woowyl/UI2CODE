@@ -1,5 +1,5 @@
 <template>
-    <div class="element-wrapper box-border">
+    <div class="element-wrapper">
         <h2 class="title">选择元素</h2>
         <div 
             v-for="(element, index) in elementsList"
@@ -63,6 +63,7 @@ export default {
     .element-wrapper {
         width: 240px;
         padding: 20px;
+        border-left: 1px solid #bbb;
     }
     .item-wrapper {
         margin-bottom: 26px;

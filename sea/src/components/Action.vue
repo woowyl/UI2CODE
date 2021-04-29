@@ -1,6 +1,6 @@
 <template>
     <div 
-        class="action-wrapper box-border" 
+        class="action-wrapper" 
         @dragenter="dragenter"
         @dragover="dragover"
         @drop="drop">
@@ -93,9 +93,8 @@ export default {
 <style lang="less" scoped>
 .action-wrapper {
     flex: 1;
-    margin: 10px;
     padding: 10px 50px;
-    
+    background: #eee;
 }
 
 </style>

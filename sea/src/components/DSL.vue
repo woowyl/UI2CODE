@@ -1,5 +1,5 @@
 <template>
-    <div class="dsl-wrapper box-border">
+    <div class="dsl-wrapper">
         <h2 class="title">DSL Tree</h2>
         <div v-html="DSLTree">
         </div>
@@ -29,6 +29,7 @@ export default {
     .dsl-wrapper {
         width: 240px;
         padding: 20px;
+        border-right: 1px solid #bbb ;
         .root {
             .title {
                 color: #333;
