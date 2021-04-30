@@ -2,7 +2,8 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 
 import property from './modules/property';
-import DSL from './modules/DSL'
+import DSL from './modules/DSL';
+import ExportModel from './modules/export'
 
 import {
     CLOSE_PROPERTY_PANNEL,
@@ -16,6 +17,7 @@ export default new Vuex.Store({
     modules: {
         property,
         DSL,
+        ExportModel
     },
     state: {
         showPropertyPanel: false
