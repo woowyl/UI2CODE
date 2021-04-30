@@ -4,6 +4,8 @@ import {
     GET_LESS_TREE
 } from '../mutaion-types'
 
+import getDOMTree from '../../utils/export/getDOMTree'
+
 const app = {
     state: {
         showExportPanel: false
@@ -14,6 +16,8 @@ const app = {
             state.showExportPanel = status;
         },
         [GET_DOM_TREE](state, {type}) {
+            
+            getDOMTree(this.state.DSL.DSL)
             console.log('in mudule export', state, type);
         },
         [GET_LESS_TREE](state, {type}) {

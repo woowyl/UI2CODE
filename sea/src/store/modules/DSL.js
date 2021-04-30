@@ -34,12 +34,9 @@ const app = {
             let curDSL = getItemFromDSLByBFS(state.DSL, this.state.property.curnode);
             if (value != '') {
                 Vue.set(curDSL, property, value);
-                // curDSL[property] = value
             } else if (innervalue != '' && innerproperty != '') {
                 Vue.set(curDSL[property], innerproperty, innervalue);
-                // curDSL[property][innerproperty] = innervalue;
             }
-            console.log(state.DSL);
         },
     }
 }
