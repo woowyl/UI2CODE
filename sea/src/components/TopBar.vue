@@ -29,10 +29,10 @@ export default {
                 type: 'get_dom_tree',
                 status: true
             })
-            this.$store.commit({
-                type: 'get_less_tree',
-                status: true
-            })
+            // this.$store.commit({
+            //     type: 'get_less_tree',
+            //     status: true
+            // })
         }
     }
 }

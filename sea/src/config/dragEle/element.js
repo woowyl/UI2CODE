@@ -19,12 +19,12 @@ const text = {
         nodeid: 1,
         type: 'text',
         tagName: 'p',
-        content: '这是一段文字，这里是一段文字',
+        content: '这是一段文字这里是一段文字',
         children: [],
         attributes: {},
         computedStyle: {}
     },
-    html: `<p>这是一段文字，这里是一段文字</p>`
+    html: `<p>这是一段文字这里是一段文字</p>`
 }
 
 const image = {

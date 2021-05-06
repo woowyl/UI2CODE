@@ -8,20 +8,20 @@ import getDOMTree from '../../utils/export/getDOMTree'
 
 const app = {
     state: {
-        showExportPanel: false
+        showExportPanel: false,
+        domTree: '',
+        lessString: ''
     },
     mutations: {
         [SET_EXPORT_MODEL](state, {status}) {
-            console.log('in mudule export', status);
             state.showExportPanel = status;
         },
-        [GET_DOM_TREE](state, {type}) {
-            
-            getDOMTree(this.state.DSL.DSL)
-            console.log('in mudule export', state, type);
+        [GET_DOM_TREE](state) {
+            let domTree = getDOMTree(this.state.DSL.DSL)
+            state.domTree = domTree;
         },
         [GET_LESS_TREE](state, {type}) {
-            console.log('in mudule export', state, type);
+            console.log('in mudule export3', state, type);
         }
     }
 }

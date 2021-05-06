@@ -16,7 +16,8 @@
                 :spinning="spinning"
                 size="large"/>
             <!-- 内容展示 -->
-            <div class="html code-block">
+            <div class="code-wrapper">
+                <textarea class="html code-block" :value="domTree"></textarea>
                 <div class="header">
                     <p class="title">DOM</p>
                     <a-button
@@ -27,7 +28,8 @@
                     </a-button>
                 </div>
             </div>
-            <div class="less code-block">
+            <div class="code-wrapper">
+                <textarea class="less code-block"> </textarea>
                 <div class="header">
                     <p class="title">CSS</p>
                     <a-button
@@ -38,6 +40,8 @@
                     </a-button>
                 </div>
             </div>
+            
+            
         </div>
     </a-modal>
 </template>
@@ -54,7 +58,8 @@ export default {
     },
     computed: {
         ...mapState({
-            visible: state => state.ExportModel.showExportPanel
+            visible: state => state.ExportModel.showExportPanel,
+            domTree: state => state.ExportModel.domTree
         })
     },
     methods: {
@@ -109,16 +114,26 @@ export default {
             color: #fff;
         }
         .code-block {
-            position: relative;
+            width: 100%;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            outline: none;
+            color: #fff;
+            font-size: 16px;
+            padding: 40px 15px;
         }
-        .html {
+        .code-wrapper {
+            position: relative;
             height: 100%;
             flex: 1;
+        }
+        .html {
             background: #2e2e2e;
         }
         .less {
-            height: 100%;
-            flex: 1;
             background: #1d1e22;
         }
         .header {

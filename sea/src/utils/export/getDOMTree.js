@@ -8,12 +8,12 @@ export default function(DSL) {
     stack.push(DSL);
     while (stack.length != 0) {
         let item = stack.pop();
-        childrenWrapper.classList.add("children");
         let childrenWrapper = document.createElement("div");
         switch (item.type) {
             case 'document':
                 item.parent = root;
                 childrenWrapper = document.createElement("div");
+                childrenWrapper.id = "document";
                 break;
             case 'block':
                 childrenWrapper = document.createElement("div");
@@ -34,6 +34,6 @@ export default function(DSL) {
             stack.push(children[i]);
         }
     }
-    console.log(root.outerHTML);
-    return root.outerHTML;
+    console.log(root.querySelector("#document"), root.querySelector("#document").children[0]);
+    return root.querySelector("#document").children[0].outerHTML;
 }
