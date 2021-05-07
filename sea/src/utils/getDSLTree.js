@@ -4,14 +4,17 @@
 //     let textNode = document.createTextNode()
 // }
 
+import deepcopy from '../utils/tools/deepCopy'
+
 export default function(DSL) {
     let root = document.createElement('div');
     root.classList.add('root');
     /**
      * 采用深度优先的方式DFS
      */
+    let dcDSL = deepcopy(DSL);
     let stack = [];
-    stack.push(DSL);
+    stack.push(dcDSL);
     while (stack.length != 0) {
         let item = stack.pop();
         let title = document.createElement("p");

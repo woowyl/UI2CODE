@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="code-wrapper">
-                <textarea class="less code-block"> </textarea>
+                <textarea class="less code-block" :value="lessTree"> </textarea>
                 <div class="header">
                     <p class="title">CSS</p>
                     <a-button
@@ -53,13 +53,14 @@ export default {
     data() {
         return {
             confirmLoading: false,
-            spinning: true
+            spinning: true,
+            lessTree: ''
         };
     },
     computed: {
         ...mapState({
             visible: state => state.ExportModel.showExportPanel,
-            domTree: state => state.ExportModel.domTree
+            domTree: state => state.ExportModel.domTree,
         })
     },
     methods: {

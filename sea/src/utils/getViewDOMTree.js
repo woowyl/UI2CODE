@@ -1,9 +1,9 @@
 // import demoDSL from '../mock/demoDSL'
+import deepcopy from '../utils/tools/deepCopy'
 
 function addEditFun(curEle) {
     curEle.addEventListener("dblclick", (e) => {
         e.stopPropagation();
-        console.log(curEle);
             // 首先让选中的元素加上样式，同一时刻只能编辑一个元素
         document.querySelectorAll('*').forEach(ele => {
             ele.classList.remove('cur-edit');
@@ -22,10 +22,15 @@ function addEditFun(curEle) {
 
 export default function(DSL) {
     let stack = [];
-    // let copyedDSL = JSON.parse(JSON.stringify(DSL));
-    // console.log("copyedDSL", copyedDSL, DSL);
-    // stack.push(copyedDSL);
-    stack.push(DSL);
+    /**
+     * todo : deepcopy of DSL
+     *  这里需要对DSL做一次深拷贝，一些展示样式（eg: boder margin等默认属性）不要污染导出代码
+     */
+    let copyedDSL = deepcopy(DSL);
+    console.log("originDSL====", DSL);
+    console.log("copyedDSL====", copyedDSL);
+    stack.push(copyedDSL);
+    // stack.push(DSL);
     let root;
     while(stack.length !== 0) {
         let item = stack.pop();
