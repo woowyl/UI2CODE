@@ -11,7 +11,6 @@ const SET_CURRENT_NODE = 'set_current_node';
 // setExportModel
 const SET_EXPORT_MODEL = 'set_export_model';
 const GET_DOM_TREE = "get_dom_tree";
-const GET_LESS_TREE = "get_less_tree";
 
 export {
     ADD_DSL_ITEM,
@@ -22,5 +21,4 @@ export {
     SET_CURRENT_NODE,
     SET_EXPORT_MODEL,
     GET_DOM_TREE,
-    GET_LESS_TREE
 }

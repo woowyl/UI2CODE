@@ -17,7 +17,7 @@
                 size="large"/>
             <!-- 内容展示 -->
             <div class="code-wrapper">
-                <textarea class="html code-block" :value="domTree"></textarea>
+                <textarea class="html code-block" :value="viewTree"></textarea>
                 <div class="header">
                     <p class="title">DOM</p>
                     <a-button
@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="code-wrapper">
-                <textarea class="less code-block" :value="lessTree"> </textarea>
+                <textarea class="less code-block" :value="styleTree"> </textarea>
                 <div class="header">
                     <p class="title">CSS</p>
                     <a-button
@@ -54,13 +54,13 @@ export default {
         return {
             confirmLoading: false,
             spinning: true,
-            lessTree: ''
         };
     },
     computed: {
         ...mapState({
             visible: state => state.ExportModel.showExportPanel,
-            domTree: state => state.ExportModel.domTree,
+            viewTree: state => state.ExportModel.viewTree,
+            styleTree: state => state.ExportModel.styleTree
         })
     },
     methods: {

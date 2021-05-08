@@ -27,8 +27,6 @@ export default function(DSL) {
      *  这里需要对DSL做一次深拷贝，一些展示样式（eg: boder margin等默认属性）不要污染导出代码
      */
     let copyedDSL = deepcopy(DSL);
-    console.log("originDSL====", DSL);
-    console.log("copyedDSL====", copyedDSL);
     stack.push(copyedDSL);
     // stack.push(DSL);
     let root;
