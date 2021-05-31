@@ -4,10 +4,6 @@
         @dragenter="dragenter"
         @dragover="dragover"
         @drop="drop">
-        <a-button 
-            type="primary" 
-            @click="showPropertyPannel">查看属性
-        </a-button>
         <div v-text="viewModel"></div>
         <div class="view-wrapper" id="appendView" >
 
