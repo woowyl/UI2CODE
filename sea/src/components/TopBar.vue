@@ -1,5 +1,9 @@
 <template>
     <div class="fixed-top-bar">
+        <a-button style="margin-left: 8px">
+            <a-icon type="upload" />
+            上传图片 
+        </a-button>
         <div class="export">
             <a-dropdown>
                 <a-menu slot="overlay" @click="handleMenuClick">
@@ -8,7 +12,7 @@
                     <a-menu-item key="3"> <a-icon type="mobile" />APP </a-menu-item>
                 </a-menu>
                 <a-button style="margin-left: 8px">
-                    <a-icon type="to-top" />
+                    <a-icon type="export" />
                     代码导出 
                     <a-icon type="down" /> 
                 </a-button>
@@ -42,7 +46,7 @@ export default {
     .fixed-top-bar {
         display: flex;
         align-items: center;
-        justify-content: flex-end;
+        justify-content: space-between;
         width: 100%;
         height: 54px;
         background: #eaedf0;

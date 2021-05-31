@@ -74,7 +74,7 @@ export default {
         }
         .element {
             div {
-                border: 1px solid #333;
+                border: 1px solid #b3b3b3;
                 height: 100px;
                 width: 100%;
                 border-radius: 4px;
