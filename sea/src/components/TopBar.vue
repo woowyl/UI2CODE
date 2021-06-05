@@ -2,7 +2,7 @@
     <div class="fixed-top-bar">
         <a-button style="margin-left: 8px">
             <a-icon type="upload" />
-            上传图片 
+            上传图片
         </a-button>
         <div class="export">
             <a-dropdown>
@@ -13,8 +13,8 @@
                 </a-menu>
                 <a-button style="margin-left: 8px">
                     <a-icon type="export" />
-                    代码导出 
-                    <a-icon type="down" /> 
+                    代码导出
+                    <a-icon type="down" />
                 </a-button>
             </a-dropdown>
         </div>
