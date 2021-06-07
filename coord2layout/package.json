@@ -1,0 +1,12 @@
+{
+  "name": "coord2layout",
+  "version": "1.0.0",
+  "description": "- 父元素最多子元素数量  - 子元素集合占用父元素最大宽度or高度占比   - 重叠max   - 重叠min  - 重叠部分宽/高比差",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./test/polybool.test.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {}
+}
