@@ -74,3 +74,144 @@
  - - - - - ![](./images/row_layout.png)
 
 这种情况就和元素的进入顺序有很大关联。
+
+
+## 输入和产出
+
+### 1. 输入json demo
+```json
+{
+    "compos": [
+        {
+            "class": "Background",
+            "column_max": 569,
+            "height": 800,
+            "row_min": 0,
+            "id": 0,
+            "width": 569,
+            "column_min": 0,
+            "row_max": 800
+        },
+        {
+            "class": "ImageView",
+            "column_max": 536,
+            "height": 462,
+            "row_min": 19,
+            "id": 1,
+            "width": 506,
+            "column_min": 30,
+            "row_max": 481
+        },
+        {
+            "class": "ImageView",
+            "column_max": 262,
+            "height": 112,
+            "row_min": 509,
+            "id": 2,
+            "width": 219,
+            "column_min": 43,
+            "row_max": 621
+        },
+        {
+            "class": "ImageView",
+            "column_max": 536,
+            "height": 112,
+            "row_min": 509,
+            "id": 3,
+            "width": 219,
+            "column_min": 317,
+            "row_max": 621
+        },
+        {
+            "class": "ImageView",
+            "column_max": 259,
+            "height": 112,
+            "row_min": 654,
+            "id": 4,
+            "width": 218,
+            "column_min": 41,
+            "row_max": 766
+        },
+        {
+            "class": "ImageView",
+            "column_max": 536,
+            "height": 112,
+            "row_min": 654,
+            "id": 5,
+            "width": 219,
+            "column_min": 317,
+            "row_max": 766
+        }
+    ]
+}
+```
+
+
+### 2. 输出json demo
+```js
+{
+       type: 'document',
+       children:[
+           {
+                type: 'element',
+                tagName: 'html',
+                nodeid: 0,//自增，用于找到对应
+                children: [{
+                        type: 'element',
+                        tagName: 'div',
+                        nodeid: 1,
+                        children: [],
+                        attributes: [],
+                    }, {
+                        type: 'text',
+                        nodeid: 2,
+                        content: 'this is text'
+                    }
+                    
+                ],
+                attributes: [
+                   {
+                       name: 'class',
+                       value: 'hello world'
+                   },
+                   {
+                       name: 'id',
+                       value: '#id'
+                   }
+                ],
+                computedStyle: {
+                    width: '100px',
+                    display: 'flex',
+                    'align-items': 'center'
+                }
+           }
+       ]
+    }
+```
+
+## milestone 与 todolist
+
+### milestone
+1. step1: 初始化组件树
+9/12
+2. step2: 读取原料库feedstock文件夹下的json数据
+3. step3: 遍历读取json中的数组数据
+9/21
+4. step4: 将读取数据放入组件树合适位置
+    - 处理重叠
+    - 处理插入
+11/21
+5. step5: 读取结束，输出组件树
+11/28
+
+### todolist
+- 判断两个元素是否重叠
+ - 单角重叠
+ - 两角重叠
+ - 零角重叠（覆盖重叠）
+- 判断两个元素是否是包含
+
+
+
+
+
