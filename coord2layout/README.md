@@ -150,43 +150,41 @@
 ### 2. 输出json demo
 ```js
 {
-       type: 'document',
-       children:[
-           {
-                type: 'element',
-                tagName: 'html',
-                nodeid: 0,//自增，用于找到对应
-                children: [{
-                        type: 'element',
-                        tagName: 'div',
-                        nodeid: 1,
-                        children: [],
-                        attributes: [],
-                    }, {
-                        type: 'text',
-                        nodeid: 2,
-                        content: 'this is text'
-                    }
-                    
-                ],
-                attributes: [
-                   {
-                       name: 'class',
-                       value: 'hello world'
-                   },
-                   {
-                       name: 'id',
-                       value: '#id'
-                   }
-                ],
-                computedStyle: {
-                    width: '100px',
-                    display: 'flex',
-                    'align-items': 'center'
+    type: 'document',
+    children:[
+        {
+            type: 'element',
+            tagName: 'html',
+            nodeid: 0,//自增，用于找到对应
+            children: [{
+                    type: 'element',
+                    tagName: 'div',
+                    nodeid: 1,
+                    children: [],
+                    attributes: [],
+                }, {
+                    type: 'text',
+                    nodeid: 2,
+                    content: 'this is text'
                 }
-           }
-       ]
-    }
+            ],
+            attributes: [
+                {
+                    name: 'class',
+                    value: 'hello world'
+                },{
+                    name: 'id',
+                    value: '#id'
+                }
+            ],
+            computedStyle: {
+                width: '100px',
+                display: 'flex',
+                'align-items': 'center'
+            }
+        }
+    ]
+}
 ```
 
 ## milestone 与 todolist
