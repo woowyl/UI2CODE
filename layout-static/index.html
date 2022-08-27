@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        .content {
+            width: 800px;
+            margin: 50px 100px;
+            min-height: 400px;
+            border: 1px solid #555;
+        }
+        .layout-1 {
+            display: flex;
+            align-items: center;
+            border: 1px solid #333;
+            height: 300px;
+            width: 100%;
+            padding: 10px;
+            background: #f5f5f5;
+        }
+        .layout-1 .img-wrapper {
+            display: flex;
+            height: 100%;
+            width: 280px;
+        }
+        .layout-1 .img-wrapper img {
+            height: 100%;
+            width: 100%;
+            object-fit: fill;
+        }
+        .layout-1 .text-wrapper {
+            display: flex;
+            flex: 1;
+            margin-left: 10px;
+            height: 100%;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .layout-1 .text-wrapper .bottom {
+            font-size: 18px;
+            color: red;
+        }
+        .layout-1 .text-wrapper .label {
+            display: inline-block;
+            align-items: center;
+            font-size: 14px;
+            color: red;
+            padding: 5px 10px;
+            border: 1px solid red;
+        }
+        .layout-1 .text-wrapper .sub-title {
+            margin: 20px 0;
+        }
+        .layout-1 .text-wrapper .top {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <!-- http://placekitten.com/300/200 -->
+    <div class="content">
+        <div class="layout-1">
+            <div class="img-wrapper">
+                <img src="http://placekitten.com/300/200" alt="">
+            </div>
+            <div class="text-wrapper">
+                <div class="top">
+                    <h3>这里是一段文字</h3>
+                    <p class="sub-title">这里是副标题</p>
+                    <span class="label">这里是标签</span>
+                </div>
+                <div class="bottom">￥121212</div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

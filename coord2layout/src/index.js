@@ -1,10 +1,10 @@
-let compos = require('./getComps');
+
 const insertFoo = require('./insertCompTree');
 let compTree = require('./composTree');
 /**
  *  step1: 初始化组件树
  */
-
+let compos = require('./getComps');
  /**
  *  step2: 读取原料库feedstock文件夹下的json数据
  */

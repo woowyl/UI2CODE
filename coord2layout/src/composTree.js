@@ -16,6 +16,6 @@ let compTree = {
 }
 
 module.exports = {
-    curTree: compTree,
+    curTree: compTree.children,
     curNum: 1
 }
