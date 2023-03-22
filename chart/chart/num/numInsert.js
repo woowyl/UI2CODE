@@ -5,13 +5,13 @@
     // 指定图表的配置项和数据
     option = {
         title: {
-            text: '高斯数据变化'
+            text: '插入阈值准确率'
         },
         tooltip: {
             trigger: 'axis'
         },
         legend: {
-            data: ['处理前', '处理后']
+            data: ['带权趋势']
         },
         grid: {
             left: '3%',
@@ -26,53 +26,47 @@
         },
         xAxis: {
             type: 'category',
-            boundaryGap: false,
-            data: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16']
+            boundaryGap: true,
+            data: ['1/2', '3/5', '7/10', '4/5', '9/10', '1']
         },
-        yAxis: {
-            type: 'value'
-        },
-        series: [
+        yAxis: [
             {
-                name: '处理前',
-                type: 'line',
-                stack: '处理前',
-                data: window.NUM_YEAR_TOTAL
-            },
-            {
-                name: '处理后',
-                type: 'line',
-                data: window.NUM_YEAR_TOTAL_AFTER
+                type: 'value',
+                axisLabel: {
+                    formatter: '{value} %'
+                }
             }
         ],
-        color: ['#c23531','#2f4554', '#61a0a8', '#d48265', '#91c7ae','#749f83',  '#ca8622', '#bda29a','#6e7074', '#546570', '#c4ccd3']
+        series: [
+            // {
+            //     name: '横向商品',
+            //     type: 'bar',
+            //     barWidth: '20',
+            //     data: window.INSERT_HORIZONTAL_GOODS
+            // },
+            // {
+            //     name: '横向资讯',
+            //     type: 'bar',
+            //     barWidth: '20',
+            //     data: window.INSERT_VERTICAL_INFO
+            // },
+            // {
+            //     name: '纵向商品',
+            //     type: 'bar',
+            //     barWidth: '20',
+            //     data: window.INSERT_VERTICAL_GOODS
+            // },
+            {
+                name: '带权趋势',
+                type: 'line',
+                data: window.INSERT_WEIGHT_LINE
+            }
+        ],
+        color: window.COLORS
     };
     
 
     // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
 
-
-    function gaussianFun(array) {
-        let aLen = array.length;
-        array[-1] = 0;
-        array[-2] = 0;
-        array[-3] = 0;
-        array[aLen] = 0;
-        array[aLen+1] = 0;
-        array[aLen+2] = 0;
-        let gausWeight = [0.382, 0.242, 0.061, 0.006]
-        let gausedArray = [];
-        debugger
-        
-        for (let i = 0; i < aLen; i++) {
-            let center = array[i] * gausWeight[0];
-            let centerD1 = (array[i-1] + array[i+1])* gausWeight[1];
-            let centerD2 = (array[i+2] + array[i-2]) * gausWeight[2];
-            let centerD3= (array[i+3]+ array[i-3]) * gausWeight[3];
-            let item = center + centerD1+ centerD2 + centerD3;
-            gausedArray.push(item)
-        }
-        return gausedArray;
-    }
 })();
